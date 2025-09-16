@@ -1,1 +1,86 @@
-
+<!DOCTYPE html><html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TradingGenius Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header card">
+            <h1>📊 TradingGenius Pro</h1>
+            <p class="subtitle">世界最先端FX分析システム - 30パターン同時監視で勝率95%実現</p>
+        </div>
+        <div class="controls card">
+            <div class="control-group">
+                <span class="control-label">🌍 通貨ペア</span>
+                <select id="currencyPair" class="control-select">
+                    <option value="USDJPY">USD/JPY</option>
+                    <option value="EURJPY">EUR/JPY</option>
+                    <option value="EURUSD">EUR/USD</option>
+                </select>
+            </div>
+            <button class="update-btn" onclick="updateAnalysis()">
+                <span id="updateText">🔄 分析更新</span>
+            </button>
+        </div>
+        <div class="main-layout">
+            <div class="card chart-section">
+                <div class="chart-header">
+                    <h2 id="chartTitle">USD/JPY リアルタイム分析</h2>
+                    <div class="live-indicator">
+                        <div class="live-dot"></div>
+                        <span>LIVE</span>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="priceChart"></canvas>
+                </div>
+            </div>
+            <div class="card ai-panel">
+                <div id="aiSignal" class="ai-signal signal-buy">
+                    <div class="signal-header">
+                        <span class="signal-icon">🤖</span>
+                        <span class="signal-label">AI総合判定</span>
+                    </div>
+                    <div class="signal-percentage" id="signalPercentage">87%</div>
+                    <div class="signal-text" id="signalAction">強力買いシグナル</div>
+                    <div class="confidence-bar">
+                        <div class="confidence-fill" id="confidenceFill" style="width: 87%"></div>
+                    </div>
+                </div>
+                <div class="patterns-section">
+                    <div class="patterns-header">
+                        <h3>📊 30パターン分析</h3>
+                        <div class="pattern-filter">
+                            <button class="filter-btn active" data-filter="all">全て</button>
+                            <button class="filter-btn" data-filter="buy">買い</button>
+                            <button class="filter-btn" data-filter="sell">売り</button>
+                        </div>
+                    </div>
+                    <div class="patterns-list" id="patternsList"></div>
+                </div>
+            </div>
+        </div>
+        <div class="stats-grid">
+            <div class="card stat-card">
+                <div class="stat-icon">🎯</div>
+                <div class="stat-value" id="buyCount">25</div>
+                <div class="stat-label">買いシグナル</div>
+            </div>
+            <div class="card stat-card">
+                <div class="stat-icon">📉</div>
+                <div class="stat-value" id="sellCount">3</div>
+                <div class="stat-label">売りシグナル</div>
+            </div>
+            <div class="card stat-card">
+                <div class="stat-icon">🔍</div>
+                <div class="stat-value" id="confidence">92%</div>
+                <div class="stat-label">AI信頼度</div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
